@@ -17,7 +17,7 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
- GiveOrTake
+ Pocket Jobs
 
 ## Sub-Heading ##
 
@@ -25,14 +25,14 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Summary ##
 
->Wheather you are in search of someone to help or you are the one willing to provide a service, GiveOrTake is the right facilitator. 
+>Wheather you are in search of someone to help or you are the one willing to provide a service, Pocket Jobs is the right facilitator. 
 
 ## Problem ##
   
   >Most of us find ourselves in need of an extra source of income or we would like someone that is able to help us in our everyday life for a specific task, during a limited time.
 
 ## Solution ##
-  > GiveOrTake can easily meet both of these demands.
+  > Pocket Jobs can easily meet both of these demands.
 
 ## Quote from You ##
   > 
@@ -41,7 +41,7 @@ Once the project moves into development, the press release can be used as a touc
   > Navigate to the website and start your search. Make an account and log in if you want to post a job.
 
 ## Customer Quote ##
-  > GiveOrTake helped me save a lot of time and I managed to catch up on my work. 
+  > Pocket Jobs helped me save a lot of time and I managed to catch up on my work. 
 
 ## Closing and Call to Action ##
   > Our app is one click away! 'heroku link'
