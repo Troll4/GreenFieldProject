@@ -4,7 +4,7 @@ mongoose.connect("mongodb://localhost/jobs",{ useMongoClient: true});
 
 var db = mongoose.connection;
 db.on("error",function(){
-	console.log("connection error");
+	console.log("connection errorr");
 });
 db.once("open",function() {
 	console.log("connection success");
