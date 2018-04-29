@@ -4,9 +4,8 @@ mongoose.connect("mongodb://RBK:rbk12345@ds159489.mlab.com:59489/jobsdb",{ useMo
 
 var db = mongoose.connection;
 db.on("error",function(){
-	console.log("connection error");
+	console.log("connection errorr");
 });
 db.once("open",function() {
-	console.log("connection success");	
+	console.log("connection success");
 });
-
