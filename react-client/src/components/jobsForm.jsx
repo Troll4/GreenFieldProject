@@ -155,6 +155,11 @@ class JobsForm extends React.Component {
 			<Col md={1}>
 			</Col>
 			</Row><br/><br/>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fixing conflicts4
 			<Row>
 			<Col md={1}>
 			</Col>
@@ -175,7 +180,6 @@ class JobsForm extends React.Component {
 			<Col md={1}>
 			</Col>
 			</Row>
-
 			<br />
 			    <Button id="jobb" className="btn btn-primary" type="submit" bsSize="large" >
 				     Add
