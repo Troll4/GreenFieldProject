@@ -12,9 +12,12 @@ class JobsForm extends React.Component {
 			jobDescription: '',
 			category: '',
 			from: '',
-			to: ''},
+			to: '',
+			lat:'',
+			lng:''
+			},
 			message:''
-			
+
 		}
 		this.baseState = this.state;
 		this.onChange = this.onChange.bind(this);
@@ -26,23 +29,23 @@ class JobsForm extends React.Component {
       var name = e.target.name;
       var value = e.target.value;
       states[name] = value;
-      this.setState({states:states});  
+      this.setState({states:states});
 	};
-	
+
 
 	handleSubmit(event) {
 		var that=this;
 		event.preventDefault();
 		axios.post('/job', this.state.states)
   			.then(function (response) {
-  				that.setState({message:"Job Added"}); 
-    		
+  				that.setState({message:"Job Added"});
+
   			})
   			.catch(function (error) {
     		console.log(error);
   			});
 
-  			
+
 		};
 
 	render() {
@@ -83,7 +86,7 @@ class JobsForm extends React.Component {
 
 			<Row>
 			<Col md={1}>
-			</Col> 
+			</Col>
 			<Col md={2}>
 			<span>Job Description</span>
 			</Col>
@@ -91,14 +94,14 @@ class JobsForm extends React.Component {
 			<label >
 			<FormControl id="txtArea" componentClass="textarea"  maxLength={150} name="jobDescription" placeholder = "Job Description" autoFocus required onChange={this.onChange} />
 			</label></Col>
-			
+
 			<Col md={1}>
-			</Col> 
+			</Col>
 			</Row><br />
 
 			<Row>
 			<Col md={1}>
-			</Col> 
+			</Col>
 			<Col md={2}>
 			<span>From</span>
 			</Col>
@@ -115,7 +118,30 @@ class JobsForm extends React.Component {
 			</label></Col>
 			<Col md={1}>
 			</Col>
-			</Row><br /><br />
+			</Row><br />
+
+			<Row>
+			<Col md={1}>
+			</Col>
+			<Col md={2}>
+			<span>Location</span>
+			</Col>
+			<Col md={3}>
+
+			<FormControl maxLength={20} type="text" name="lat" placeholder = "lat" autoFocus required onChange={this.onChange} />
+			</Col>
+			<Col md={2}>
+
+			</Col>
+			<Col md={3}>
+				<FormControl maxLength={20} type="text" name="lng" placeholder = "lng" autoFocus required onChange={this.onChange} />
+
+			</Col>
+			<Col md={1}>
+			</Col>
+			</Row>
+
+			<br />
 
 			    <Button id="jobb" className="btn btn-primary" type="submit" bsSize="large" >
 				     Add
