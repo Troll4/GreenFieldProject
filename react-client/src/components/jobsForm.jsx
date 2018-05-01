@@ -13,6 +13,8 @@ class JobsForm extends React.Component {
 			category: '',
 			from: '',
 			to: '',
+		  salary: '',
+			//urgentJob: ''
 			lat:'',
 			lng:''
 			},
@@ -44,9 +46,26 @@ class JobsForm extends React.Component {
   			.catch(function (error) {
     		console.log(error);
   			});
-
-
 		};
+
+//how the message will be for the backend !!
+// how it should be ?: /job or /job.....
+	// handleSubmit2(event){
+	// 	var that=this;
+	// 	event.preventDefault();
+	// 	axios.post('/job', this.state.states)
+	// 				.then(function(response) {
+	//   				that.setState({message:"Urgent Job"});
+	//
+	//   			})
+	//   			.catch(function (error) {
+	//     		console.log(error);
+	//   			});
+	// }	;
+
+
+
+
 
 	render() {
 		return (
@@ -105,21 +124,37 @@ class JobsForm extends React.Component {
 			<Col md={2}>
 			<span>From</span>
 			</Col>
-			<Col md={3}>
+			<Col md={2}>
 			<label >
 			<FormControl type = "time" name = "from" placeholder = "From" autoFocus required onChange={this.onChange} />
 			</label> </Col>
 			<Col md={2}>
 			<span>To</span>
 			</Col>
-			<Col md={3}>
+			<Col md={2}>
 			<label >
 			<FormControl type = "time" name = "to" placeholder = "To" autoFocus required onChange={this.onChange} />
 			</label></Col>
+			<Col md={2}>
+			<label >
+			<div className="form-group">
+				<select name = "category" className="form-control selectpicker btn btn-default" id="catJ" onChange={this.onChange}>
+					<option value="FirstRange">Enter The Sallary</option>
+					<option value="FirstRange">100-300</option>
+					<option value="SecondRange">300-500</option>
+					<option value="ThirdRange">500-700</option>
+					<option value="FourthRange">700-1000</option>
+				 </select>
+				</div>
+			</label></Col>
+      <Col md={2}>
+			<Button id="urgjob" className="btn btn-primary" type="submit" bsSize="large" >
+					Urgent
+			</Button>
+			</Col>
 			<Col md={1}>
 			</Col>
-			</Row><br />
-
+			</Row><br/><br/>
 			<Row>
 			<Col md={1}>
 			</Col>
@@ -142,7 +177,6 @@ class JobsForm extends React.Component {
 			</Row>
 
 			<br />
-
 			    <Button id="jobb" className="btn btn-primary" type="submit" bsSize="large" >
 				     Add
 			    </Button>
