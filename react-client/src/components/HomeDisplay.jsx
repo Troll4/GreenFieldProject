@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, FormControl, Row, Col, ButtonToolbar } from 'react-bootstrap';
+import MapContainer from './Gmaps.jsx'
 class HomeDisplay extends React.Component {
   constructor(props) {
   	console.log(props.item.to)
@@ -7,67 +8,73 @@ class HomeDisplay extends React.Component {
   }
 
 
- 
+
 render() {
 	let phonNum=0;
 	if(this.props.item.userInfo.length>0){
 		 phonNum=this.props.item.userInfo[0].phoneNumber;
 	}
-	
+
   return (
-  	<div>
-  	<div id ='postDiv' className="jobsDiv container"><br />
-  		<Row>
-			<Col md={4}>
+  <div>
+  	<div className='card-columns'>
+      <div className = 'col-12'>
+  	<div className="card text-white bg-dark mb-3" style={{width: '35rem'}} ><br />
+  		<div className="card-body">
+			<div >
 			<span><b>Name : </b></span>
 			<span>{this.props.item.user}</span>
-			</Col>
-			<Col md={4}>
+    </div>
+    <div>
 			<span><b>Job Title : </b></span>
 			<span>{this.props.item.jobTitle}</span>
-			</Col>
-			<Col md={4}>
+    </div>
+    <div className='col-4'>
 			<span><b>Job Category : </b></span>
 			<span>{this.props.item.category}</span>
-			</Col>
-		</Row><br />
-		
-        <Row>
-            <Col md={4}>
+    </div>
+		</div><br />
+
+        <div>
+          <div className='col-4'>
             <span><b>From : </b></span>
 			<span>{this.props.item.from}</span>
-			</Col>
-			<Col md={4}>
+    </div>
+    <div className='col-4'>
 			<span><b>To : </b></span>
 			<span>{this.props.item.to}</span>
-			</Col>
-			<Col md={4}>
+    </div>
+    <div className='col-4'>
 			<span><b>Phone Number : </b></span>
 			<span>{phonNum}</span>
-			</Col>	
-		</Row><br />
+    </div>
+		</div><br />
 
-		<Row>
-		<Col md={1}>
-		</Col>
-			<Col id="description" md={10}>
+    <div className = 'row'>
+      <div className='col-1'>
+		</div>
+    <div className='col-10'>
 			<span><b>Description : </b></span>
 			<span>{this.props.item.jobDescription}</span>
-			</Col>
-			<Col md={1}>
-			</Col>
-		</Row><br />
+    </div>
+    <div className='col-1'>
+			</div>
+		</div><br />
 
-		 <Row>
-		 <Col md={8}>
-			</Col>
-		 <Col id='postTime' md={4}>
+		 <div className = 'row'>
+       <div className='col-8'>
+     </div>
+     <div className='col-4'>
 			<span><b>Posted at : </b></span>
 			<span>{this.props.item.created_at.slice(0, 10)}</span>
-			</Col>
-		 </Row>
-    </div><br />
+
     </div>
+  </div>
+    </div><br />
+  </div>
+    </div>
+
+  </div>
     )
   }
 }
