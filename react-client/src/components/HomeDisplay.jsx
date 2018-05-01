@@ -17,7 +17,7 @@ render() {
 
   return (
   <div>
-  	<div className='card-columns'>
+  	<div id='prof' className='card-columns'>
       <div className = 'col-12'>
   	<div className="card text-white bg-dark mb-3" style={{width: '35rem'}} ><br />
   		<div className="card-body">

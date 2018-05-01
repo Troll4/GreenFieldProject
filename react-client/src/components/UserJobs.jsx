@@ -10,7 +10,8 @@ class UserJobs extends React.Component {
       jobDescription: '',
       category: '',
       from: '',
-      to: ''},
+      to: '',
+      salary:''},
       message:''
     }
     this.onChange = this.onChange.bind(this);
@@ -20,6 +21,7 @@ class UserJobs extends React.Component {
       var states = this.state.states;
       var name = e.target.name;
       var value = e.target.value;
+      console.log(value);
       states[name] = value;
        this.setState({states:states});
 
@@ -32,8 +34,8 @@ class UserJobs extends React.Component {
     const posts = response.data;
     console.log(posts);
     this.setState({states:posts});
- 
-    
+
+
   })
   .catch(function (error) {
     console.log(error);
@@ -51,10 +53,10 @@ class UserJobs extends React.Component {
             console.log(error);
         });
     };
-  
- 
+
+
 render() {
-  
+
   return (
   <center>
       <div id="jobform" className="container wrapper well"><br /><br /><br />
@@ -63,7 +65,7 @@ render() {
       <Col md={1}>
       </Col>
       <Col md={2}>
-      <span>JOb Title</span>
+      <span>Job Title</span>
       </Col>
       <Col md={3}>
        <label >
@@ -77,7 +79,7 @@ render() {
       <label >
 
       <div className="form-group">
-        <select name = "category" className="form-control selectpicker btn btn-default" 
+        <select name = "category" className="form-control selectpicker btn btn-default"
         id="catJobs" onChange={this.onChange} value={this.state.states.category}>
           <option value="Select">Select Category</option>
           <option value="Driver">Driver</option>
@@ -95,7 +97,7 @@ render() {
 
       <Row>
       <Col md={1}>
-      </Col> 
+      </Col>
       <Col md={2}>
       <span>Job Description</span>
       </Col>
@@ -105,12 +107,12 @@ render() {
       autoFocus required onChange={this.onChange} value={this.state.states.jobDescription}/>
       </label></Col>
       <Col md={1}>
-      </Col> 
+      </Col>
       </Row><br />
 
       <Row>
       <Col md={1}>
-      </Col> 
+      </Col>
       <Col md={2}>
       <span>From</span>
       </Col>
@@ -122,9 +124,21 @@ render() {
       <Col md={2}>
       <span>To</span>
       </Col>
+      <Col md={2}>
+			<label >
+			<div className="form-group">
+				<select name = "salary" className="form-control selectpicker btn btn-default" id="sall" onChange={this.onChange}>
+					<option value="Enter The Sallary">Sellect The Sallary</option>
+					<option value="100-300">100-300</option>
+					<option value="300-500">300-500</option>
+					<option value="500-700">500-700</option>
+					<option value="700-1000">700-1000</option>
+				 </select>
+				</div>
+			</label></Col>
       <Col md={3}>
       <label >
-      <FormControl type = "time" name = "to" placeholder = "To" autoFocus 
+      <FormControl type = "time" name = "to" placeholder = "To" autoFocus
       required onChange={this.onChange} value={this.state.states.to}/>
       </label></Col>
       <Col md={1}>
@@ -133,7 +147,7 @@ render() {
 
           <Button id="jobb" className="btn btn-primary" type="submit" bsSize="large" >
               Update
-          </Button> 
+          </Button>
           <h3 className="SuccessMessage">{this.state.message}</h3>
       </form><br />
       </div>

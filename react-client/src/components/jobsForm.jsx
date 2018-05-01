@@ -155,11 +155,6 @@ class JobsForm extends React.Component {
 			<Col md={1}>
 			</Col>
 			</Row><br/><br/>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> fixing conflicts4
 			<Row>
 			<Col md={1}>
 			</Col>
