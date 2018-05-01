@@ -8,7 +8,7 @@ class SignUpForm extends React.Component {
     constructor(props) {
     super(props);
     this.state = {states:{
-        name: '',
+        CompanyName: '',
         userName: '',
         password: '',
         email: '',
@@ -36,25 +36,27 @@ class SignUpForm extends React.Component {
          event.preventDefault();
         axios.post('/signup', this.state.states)
           .then(function (response) {
-            that.setState({message:"User Added"});
-              // window.location.href = "/login";
+         that.setState({message:"User Added"});
+          //    window.location.href = "/";
         })
           .catch(function (error) {
             console.log(error);
         });
     };
-       
+
+
+
  render() {
     return (
       <div id="signUpPage" className="container-fluid">
     <div id='signup2' className="container wrapper well"><br />
-<span id="req" className="wrapper">* required</span>
+
   <form onSubmit = {this.handleSubmit}>
   <Row>
   <Col md={4}>
-    <label id='signlable'>*Name
-      <FormControl type="text" name="name" placeholder="Name" autoFocus required
-      onChange = {this.onChange} 
+  <label id='signlable'>*Company Name
+      <FormControl type="text" name="name" placeholder="Company Name" autoFocus required
+      onChange = {this.onChange}
       />
     </label>
     </Col>
@@ -68,12 +70,12 @@ class SignUpForm extends React.Component {
   <Col md={4}>
      <label id='signlable'>*Email:
       <FormControl type="email" name="email" placeholder="Email" required
-        onChange={this.onChange} /> 
+        onChange={this.onChange} />
       </label><br />
   </Col>
   </Row><br />
   <Row>
-    
+
   <Col md={4}>
   <label id='signlable'>*Password
         <FormControl type="password" name="password" placeholder="Password" autoFocus required
@@ -81,17 +83,21 @@ class SignUpForm extends React.Component {
         />
       </label><br />
   </Col>
-  <Col md={4}>   
-  <label id='signlable'>*Phone Number 
-  <FormControl type="number" name="phoneNumber" placeholder="Phone Number" required
+  <Col md={4}>
+  <label id='signlable'>*Phone Number
+  <FormControl type="text" name="phoneNumber" placeholder="Phone Number" required
     onChange={this.onChange}/>
-  </label><br />    
+  </label><br />
   </Col>
   <Col md={4}>
-  <label id='signlable'>*Gender
-    <FormControl type="text" name="gender" placeholder="Gender" required
-      onChange={this.onChange} />
-    </label><br />
+  <label id= 'signlable'>*Gender
+  <div className="form-group">
+    <select name = "category" className="form-control selectpicker btn btn-default" id="catJ" onChange={this.onChange}>
+      <option value="Select">Male</option>
+      <option value="Driver">Female</option>
+     </select>
+    </div>
+  </label><br />
   </Col>
   </Row><br />
   <Row>
@@ -100,28 +106,30 @@ class SignUpForm extends React.Component {
      <FormControl type="number" name="age" placeholder="Age" required
       onChange={this.onChange} />
     </label><br />
-  </Col>  
+  </Col>
     <Col md={4}>
     <label id='signlable'>Nationality
-   <FormControl type="text" name="nationality" placeholder="Nationality" 
+   <FormControl type="text" name="nationality" placeholder="Nationality"
     onChange={this.onChange} />
   </label><br />
-  </Col>  
+  </Col>
   <Col md={4}>
     <label id='signlable'>Address
     <FormControl type="text" name="address" placeholder="Address"
       onChange={this.onChange}  />
     </label><br />
-  </Col>  
+  </Col>
   </Row><br /><br />
-
+    <Col md={3}>
+<span id="req" className="wrapper"> *required</span>
+  </Col>
   <Row>
   <Col md={4}>
   </Col>
-    <Col md={4}>   
+    <Col md={4}>
 
-      
-      <Button type="submit" bsStyle="primary" bsSize="large">SignUp</Button> 
+
+      <Button type="submit" bsStyle="primary" bsSize="large">SignUp</Button>
       <h3 className="SuccessMessage">{this.state.message}</h3>
   </Col>
   </Row>
@@ -131,7 +139,6 @@ class SignUpForm extends React.Component {
     )
   }
 }
- 
+
 
 export default SignUpForm;
-

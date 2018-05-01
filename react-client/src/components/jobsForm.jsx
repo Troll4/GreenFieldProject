@@ -12,9 +12,12 @@ class JobsForm extends React.Component {
 			jobDescription: '',
 			category: '',
 			from: '',
-			to: ''},
+			to: '',
+		  salary: ''
+			//urgentJob: ''
+		},
 			message:''
-			
+
 		}
 		this.baseState = this.state;
 		this.onChange = this.onChange.bind(this);
@@ -26,24 +29,41 @@ class JobsForm extends React.Component {
       var name = e.target.name;
       var value = e.target.value;
       states[name] = value;
-      this.setState({states:states});  
+      this.setState({states:states});
 	};
-	
+
 
 	handleSubmit(event) {
 		var that=this;
 		event.preventDefault();
 		axios.post('/job', this.state.states)
   			.then(function (response) {
-  				that.setState({message:"Job Added"}); 
-    		
+  				that.setState({message:"Job Added"});
+
   			})
   			.catch(function (error) {
     		console.log(error);
   			});
-
-  			
 		};
+
+//how the message will be for the backend !!
+// how it should be ?: /job or /job.....
+	// handleSubmit2(event){
+	// 	var that=this;
+	// 	event.preventDefault();
+	// 	axios.post('/job', this.state.states)
+	// 				.then(function(response) {
+	//   				that.setState({message:"Urgent Job"});
+	//
+	//   			})
+	//   			.catch(function (error) {
+	//     		console.log(error);
+	//   			});
+	// }	;
+
+
+
+
 
 	render() {
 		return (
@@ -83,7 +103,7 @@ class JobsForm extends React.Component {
 
 			<Row>
 			<Col md={1}>
-			</Col> 
+			</Col>
 			<Col md={2}>
 			<span>Job Description</span>
 			</Col>
@@ -91,31 +111,48 @@ class JobsForm extends React.Component {
 			<label >
 			<FormControl id="txtArea" componentClass="textarea"  maxLength={150} name="jobDescription" placeholder = "Job Description" autoFocus required onChange={this.onChange} />
 			</label></Col>
-			
+
 			<Col md={1}>
-			</Col> 
+			</Col>
 			</Row><br />
 
 			<Row>
 			<Col md={1}>
-			</Col> 
+			</Col>
 			<Col md={2}>
 			<span>From</span>
 			</Col>
-			<Col md={3}>
+			<Col md={2}>
 			<label >
 			<FormControl type = "time" name = "from" placeholder = "From" autoFocus required onChange={this.onChange} />
 			</label> </Col>
 			<Col md={2}>
 			<span>To</span>
 			</Col>
-			<Col md={3}>
+			<Col md={2}>
 			<label >
 			<FormControl type = "time" name = "to" placeholder = "To" autoFocus required onChange={this.onChange} />
 			</label></Col>
+			<Col md={2}>
+			<label >
+			<div className="form-group">
+				<select name = "category" className="form-control selectpicker btn btn-default" id="catJ" onChange={this.onChange}>
+					<option value="FirstRange">Enter The Sallary</option>
+					<option value="FirstRange">100-300</option>
+					<option value="SecondRange">300-500</option>
+					<option value="ThirdRange">500-700</option>
+					<option value="FourthRange">700-1000</option>
+				 </select>
+				</div>
+			</label></Col>
+      <Col md={2}>
+			<Button id="urgjob" className="btn btn-primary" type="submit" bsSize="large" >
+					Urgent
+			</Button>
+			</Col>
 			<Col md={1}>
 			</Col>
-			</Row><br /><br />
+			</Row><br/><br/>
 
 			    <Button id="jobb" className="btn btn-primary" type="submit" bsSize="large" >
 				     Add
