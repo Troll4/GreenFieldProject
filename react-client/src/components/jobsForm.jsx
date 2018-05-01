@@ -13,9 +13,11 @@ class JobsForm extends React.Component {
 			category: '',
 			from: '',
 			to: '',
-		  salary: ''
+		  salary: '',
 			//urgentJob: ''
-		},
+			lat:'',
+			lng:''
+			},
 			message:''
 
 		}
@@ -153,7 +155,28 @@ class JobsForm extends React.Component {
 			<Col md={1}>
 			</Col>
 			</Row><br/><br/>
+			<Row>
+			<Col md={1}>
+			</Col>
+			<Col md={2}>
+			<span>Location</span>
+			</Col>
+			<Col md={3}>
 
+			<FormControl maxLength={20} type="text" name="lat" placeholder = "lat" autoFocus required onChange={this.onChange} />
+			</Col>
+			<Col md={2}>
+
+			</Col>
+			<Col md={3}>
+				<FormControl maxLength={20} type="text" name="lng" placeholder = "lng" autoFocus required onChange={this.onChange} />
+
+			</Col>
+			<Col md={1}>
+			</Col>
+			</Row>
+
+			<br />
 			    <Button id="jobb" className="btn btn-primary" type="submit" bsSize="large" >
 				     Add
 			    </Button>
