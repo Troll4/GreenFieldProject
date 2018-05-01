@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 ////Jobs Schema
 var jobsSchema = mongoose.Schema({
-  user: 
+  user:
   {
     type: String,
   },
@@ -20,7 +20,9 @@ var jobsSchema = mongoose.Schema({
   to: String,
   dateTo:Date,
   dateFrom:Date,
-  created_at: 
+  lat: String,
+  lng: String,
+  created_at:
   {
     type:Date,
     default:Date.now
@@ -36,8 +38,8 @@ var createJob = function(userName,data, callback){
   Jobs.create(data, callback)
 };
 
-// i think we don't need to pass data because 
-// it's gonna retrive all the jobs n the schema 
+// i think we don't need to pass data because
+// it's gonna retrive all the jobs n the schema
 // idk though
 var allJobs = function (callback){
    Jobs.aggregate([
@@ -88,7 +90,7 @@ var regexValue = '\.*'+title+'\.*';
  Jobs.aggregate([
     {$match:{"jobTitle":new RegExp(regexValue, 'i')}},
    {
-    
+
      $lookup:
        {
          from: "users",
@@ -97,7 +99,7 @@ var regexValue = '\.*'+title+'\.*';
          as: "userInfo"
        }
   }
-  
+
 ], function (err, data) {
         if (err) {
           console.log(err);
@@ -106,10 +108,10 @@ var regexValue = '\.*'+title+'\.*';
         console.log(data);
         callback(null, data)
     });
-  
+
 };
 var jobByUserName = function(userName, callback){
-  
+
   Jobs.find(userName).exec(function(err, data){
      if(err){
       callback(err, null)
@@ -124,7 +126,7 @@ var jobsByCategory = function(category, callback){
    Jobs.aggregate([
     {$match:{"category":category.category}},
    {
-    
+
      $lookup:
        {
          from: "users",
@@ -133,7 +135,7 @@ var jobsByCategory = function(category, callback){
          as: "userInfo"
        }
   }
-  
+
 ], function (err, data) {
         if (err) {
           console.log(err);
@@ -162,7 +164,7 @@ var jobsByCategory = function(category, callback){
         callback(null, data)
     });
  }
-  
+
 };
 
 var jobsByStartTime = function(from, callback){
