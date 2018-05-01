@@ -20,6 +20,8 @@ var jobsSchema = mongoose.Schema({
   to: String,
   dateTo:Date,
   dateFrom:Date,
+  lat: String,
+  lng: String,
   created_at:
   {
     type:Date,
