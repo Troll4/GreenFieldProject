@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import homeDisplay from './JobsForm.jsx'
 import { Button, FormControl, Row, Col, ButtonToolbar } from 'react-bootstrap';
 
 
@@ -14,7 +15,7 @@ class JobsForm extends React.Component {
 			from: '',
 			to: '',
 		  salary: '',
-			//urgentJob: ''
+			urgency: '',
 			lat:'',
 			lng:''
 			},
@@ -24,13 +25,15 @@ class JobsForm extends React.Component {
 		this.baseState = this.state;
 		this.onChange = this.onChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+	  this.handleClick = this.handleClick.bind(this);
 	}
 
 	onChange(e) {
-	  var states = this.state.states;
+	    var states = this.state.states;
       var name = e.target.name;
       var value = e.target.value;
       states[name] = value;
+			// console.log(value);
       this.setState({states:states});
 	};
 
@@ -47,25 +50,19 @@ class JobsForm extends React.Component {
     		console.log(error);
   			});
 		};
+//need to check with the back-end !!!
+		handleClick(event){
+			var that = this;
+			event.preventDefault();
+			axios.post('/job', this.state.states)
+				.then(function (response) {
+					that.setState({urgency: 10})
 
-//how the message will be for the backend !!
-// how it should be ?: /job or /job.....
-	// handleSubmit2(event){
-	// 	var that=this;
-	// 	event.preventDefault();
-	// 	axios.post('/job', this.state.states)
-	// 				.then(function(response) {
-	//   				that.setState({message:"Urgent Job"});
-	//
-	//   			})
-	//   			.catch(function (error) {
-	//     		console.log(error);
-	//   			});
-	// }	;
-
-
-
-
+				})
+				.catch(function (error){
+					console.log(error);
+				});
+		};
 
 	render() {
 		return (
@@ -138,23 +135,21 @@ class JobsForm extends React.Component {
 			<Col md={2}>
 			<label >
 			<div className="form-group">
-				<select name = "category" className="form-control selectpicker btn btn-default" id="catJ" onChange={this.onChange}>
-					<option value="FirstRange">Enter The Sallary</option>
-					<option value="FirstRange">100-300</option>
-					<option value="SecondRange">300-500</option>
-					<option value="ThirdRange">500-700</option>
-					<option value="FourthRange">700-1000</option>
+				<select name = "salary" className="form-control selectpicker btn btn-default" id="sal" onChange={this.onChange}>
+					<option value="Enter The Sallary">Enter The Sallary</option>
+					<option value="100-300">100-300</option>
+					<option value="300-500">300-500</option>
+					<option value="500-700">500-700</option>
+					<option value="700-1000">700-1000</option>
 				 </select>
 				</div>
 			</label></Col>
-      <Col md={2}>
-			<Button id="urgjob" className="btn btn-primary" type="submit" bsSize="large" >
-					Urgent
-			</Button>
-			</Col>
 			<Col md={1}>
 			</Col>
-			</Row><br/><br/>
+  	</Row><br/><br/>
+		<Button id="urg" className="btn btn-primary" type="submit" bsSize="large" onClick={this.handleClick} >
+			 Urgent
+		</Button>
 			<Row>
 			<Col md={1}>
 			</Col>
@@ -175,13 +170,11 @@ class JobsForm extends React.Component {
 			<Col md={1}>
 			</Col>
 			</Row>
-
 			<br />
 			    <Button id="jobb" className="btn btn-primary" type="submit" bsSize="large" >
 				     Add
 			    </Button>
 			    <h3 className="SuccessMessage">{this.state.message}</h3>
-
 			</form>
 			</div>
 			</center>

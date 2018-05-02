@@ -27,6 +27,7 @@ class SignUpForm extends React.Component {
       var states = this.state.states;
       var name = e.target.name;
       var value = e.target.value;
+      console.log(e.target.value)
       states[name] = value;
       this.setState({states:states});
     };
@@ -37,7 +38,7 @@ class SignUpForm extends React.Component {
         axios.post('/signup', this.state.states)
           .then(function (response) {
          that.setState({message:"User Added"});
-          //    window.location.href = "/";
+          //window.location.href = "/";
         })
           .catch(function (error) {
             console.log(error);
@@ -89,15 +90,16 @@ class SignUpForm extends React.Component {
     onChange={this.onChange}/>
   </label><br />
   </Col>
-  <Col md={4}>
-  <label id= 'signlable'>*Gender
+  <Col md={3}>
+  <label >*Gender
   <div className="form-group">
-    <select name = "category" className="form-control selectpicker btn btn-default" id="catJ" onChange={this.onChange}>
-      <option value="Select">Male</option>
-      <option value="Driver">Female</option>
-     </select>
+    <select name = "gender" className="form-control selectpicker btn btn-default" id="gend" onChange={this.onChange}>
+      <option value="Select">Sellect The Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
     </div>
-  </label><br />
+  </label>
   </Col>
   </Row><br />
   <Row>

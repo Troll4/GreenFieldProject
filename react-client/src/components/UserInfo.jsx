@@ -14,7 +14,7 @@ class UserInfo extends React.Component {
         nationality: ''}
 
     }
- 
+
     this.onChange = this.onChange.bind(this);
     this.handleSubmit  = this.handleSubmit.bind(this);
   }
@@ -32,7 +32,7 @@ class UserInfo extends React.Component {
     const posts = response.data;
     console.log(posts);
     this.setState({states:posts});
-    
+
   })
   .catch(function (error) {
     console.log(error);
@@ -49,13 +49,12 @@ class UserInfo extends React.Component {
             console.log(error);
         });
     };
- 
+
 render() {
-  
+
   return (
     <div>
     <div id='profileUpdate' className="container wrapper well"><br />
-    <span id="req" className="wrapper">* required</span>
       <form onSubmit = {this.handleSubmit}>
       <Row>
 		<Col md={4}>
@@ -66,34 +65,39 @@ render() {
 	      </label>
       	</Col>
       	<Col md={4}>
-        <label id='signlable'>*Phone Number 
-          <FormControl type="number" name="phoneNumber" placeholder="Phone Number" required
+        <label id='signlable'>*Phone Number
+          <FormControl type="text" name="phoneNumber" placeholder="Phone Number" required
             onChange={this.onChange} value={this.state.states.phoneNumber}/>
           </label><br />
-	    
+
 	    </Col>
 		<Col md={4}>
 	       <label id='signlable'>*Email:
 	        <FormControl type="email" name="email" placeholder="Email" required
-	          onChange={this.onChange}  value={this.state.states.email} /> 
+	          onChange={this.onChange}  value={this.state.states.email} />
 	        </label><br />
         </Col>
      </Row><br />
      <Row>
       	<Col md={4}>
-	        <label id='signlable'>*Gender
-	        <FormControl type="text" name="gender" placeholder="Gender" required
-	          onChange={this.onChange}  value={this.state.states.gender} />
-	        </label><br />
+        <label >*Gender
+        <div className="form-group">
+          <select name = "gender" className="form-control selectpicker btn btn-default" id="gend" onChange={this.onChange} value={this.state.states.gender}>
+            <option value="Select">Sellect The Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          </div>
+        </label><br />
         </Col>
 		<Col md={4}>
     <label id='signlable'>Nationality
-           <FormControl type="text" name="nationality" placeholder="Nationality" 
+           <FormControl type="text" name="nationality" placeholder="Nationality"
             onChange={this.onChange} value={this.state.states.nationality} />
           </label><br />
-        
+
 	    </Col>
-      	<Col md={4}>   
+      	<Col md={4}>
 	        <label id='signlable'>Address
 	        <FormControl type="text" name="address" placeholder="Address"
 	          onChange={this.onChange} value={this.state.states.address} />
@@ -101,7 +105,7 @@ render() {
 	    </Col>
 	  </Row><br />
 	  <Row>
-		<Col md={4}>    
+		<Col md={4}>
 	        <label id='signlable'>*Age
 	         <FormControl type="number" name="age" placeholder="Age" required
 	          onChange={this.onChange} value={this.state.states.age}/>
@@ -109,10 +113,11 @@ render() {
 	    </Col><br /><br /><br />
     <Col md={4}>
     </Col>
-      	<Col md={4}>   
-	        <Button type = "submit" bsStyle="primary" bsSize="large">Update</Button> 
+      	<Col md={4}>
+	        <Button type = "submit" bsStyle="primary" bsSize="large">Update</Button>
 		</Col>
 	  </Row>
+    <span id="req" className="wrapper">* required</span>
       </form>
 	</div>
   </div>
