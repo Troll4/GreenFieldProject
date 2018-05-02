@@ -58,7 +58,7 @@ var allJobs = function (callback){
   {
     $sort:
      {
-      {urgency: -1} // change
+      urgency: -1 // change
     }
   }
 ], function (err, data) {
