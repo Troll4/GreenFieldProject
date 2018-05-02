@@ -64,6 +64,10 @@ render() {
 		 <div className = 'row'>
        <div className='col-8'>
      </div>
+     <div>
+ 			<span><b>Salary : </b></span>
+ 			<span>{this.props.item.salary}</span>
+     </div>
      <div className='col-4'>
 			<span><b>Posted at : </b></span>
 			<span>{this.props.item.created_at.slice(0, 10)}</span>
