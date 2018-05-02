@@ -127,8 +127,8 @@ render() {
       <Col md={2}>
 			<label >
 			<div className="form-group">
-				<select name = "salary" className="form-control selectpicker btn btn-default" id="sall" onChange={this.onChange}>
-					<option value="Enter The Sallary">Sellect The Sallary</option>
+				<select name = "salary" className="form-control selectpicker btn btn-default" id="sal" onChange={this.onChange} value={this.state.states.salary}>
+					<option value="Enter The Sallary">Sellect The Salary</option>
 					<option value="100-300">100-300</option>
 					<option value="300-500">300-500</option>
 					<option value="500-700">500-700</option>

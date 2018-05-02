@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import homeDisplay from './JobsForm.jsx'
 import { Button, FormControl, Row, Col, ButtonToolbar } from 'react-bootstrap';
 
 
@@ -33,7 +32,7 @@ class JobsForm extends React.Component {
       var name = e.target.name;
       var value = e.target.value;
       states[name] = value;
-			// console.log(value);
+			 console.log(value);
       this.setState({states:states});
 	};
 
@@ -136,7 +135,7 @@ class JobsForm extends React.Component {
 			<label >
 			<div className="form-group">
 				<select name = "salary" className="form-control selectpicker btn btn-default" id="sal" onChange={this.onChange}>
-					<option value="Enter The Sallary">Enter The Sallary</option>
+					<option value="Enter The Sallary">Enter The Salary</option>
 					<option value="100-300">100-300</option>
 					<option value="300-500">300-500</option>
 					<option value="500-700">500-700</option>
@@ -147,17 +146,23 @@ class JobsForm extends React.Component {
 			<Col md={1}>
 			</Col>
   	</Row><br/><br/>
-		<Button id="urg" className="btn btn-primary" type="submit" bsSize="large" onClick={this.handleClick} >
-			 Urgent
-		</Button>
-			<Row>
-			<Col md={1}>
+		<Row>
+		<Col md={2}>
+				<form name="urgency" id="urg" className="btn btn-primary" >
+				<input type="checkbox" value="1 Day: 2JD"/> 1 Day : 2JD<br/>
+				<input type="checkbox" value="3 Days: 5JD"/>3 Days: 5JD<br/>
+				<input type="checkbox" value="7 Days: 8JD"/>7 Days: 8JD<br/>
+				<input type="submit" value="Urgent" className="btn btn-primary" type="submit" bsSize="large" onClick={this.handleClick}/>
+					<script id="popup">
+					function() {prompt("Please enter your credit Card number")}
+					</script>
+				</form>
 			</Col>
+			</Row>
 			<Col md={2}>
 			<span>Location</span>
 			</Col>
 			<Col md={3}>
-
 			<FormControl maxLength={20} type="text" name="lat" placeholder = "lat" autoFocus required onChange={this.onChange} />
 			</Col>
 			<Col md={2}>
@@ -169,7 +174,6 @@ class JobsForm extends React.Component {
 			</Col>
 			<Col md={1}>
 			</Col>
-			</Row>
 			<br />
 			    <Button id="jobb" className="btn btn-primary" type="submit" bsSize="large" >
 				     Add
