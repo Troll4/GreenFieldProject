@@ -27,7 +27,8 @@ var jobsSchema = mongoose.Schema({
     type:Date,
     default:Date.now
   },
-  salary: String
+  salary: String,
+  urgency: { type: Number, default: 1 } // change
 });
 
 
@@ -42,6 +43,7 @@ var createJob = function(userName,data, callback){
 // i think we don't need to pass data because
 // it's gonna retrive all the jobs n the schema
 // idk though
+
 var allJobs = function (callback){
    Jobs.aggregate([
    {
@@ -52,6 +54,12 @@ var allJobs = function (callback){
          foreignField: "userName",
          as: "userInfo"
        }
+  },
+  {
+    $sort:
+     {
+      {urgency: -1} // change
+    }
   }
 ], function (err, data) {
         if (err) {
