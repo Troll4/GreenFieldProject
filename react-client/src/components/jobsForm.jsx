@@ -153,9 +153,6 @@ class JobsForm extends React.Component {
 				<input type="checkbox" value="3 Days: 5JD"/>3 Days: 5JD<br/>
 				<input type="checkbox" value="7 Days: 8JD"/>7 Days: 8JD<br/>
 				<input type="submit" value="Urgent" className="btn btn-primary" type="submit" bsSize="large" onClick={this.handleClick}/>
-					<script id="popup">
-					function() {prompt("Please enter your credit Card number")}
-					</script>
 				</form>
 			</Col>
 			</Row>
