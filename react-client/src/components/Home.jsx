@@ -65,21 +65,25 @@ class Home extends React.Component {
 }
 
 render() {
+  console.log("entered")
   var arr = [];
+  var loc =[];
     this.state.items.forEach(function(item) {
       arr.push(<HomeDisplay item={item} />)
+      loc.push({lat:item.lat,lng:item.lng,dis:{name:item.user,dis:item.jobDescription }})
     })
+    console.log("loooooccccs",loc)
   return (
 
   <div id='home'>
    <Search searchJobTitle={this.searchJobTitle.bind(this)} searchJobCategory={this.searchJobCategory.bind(this)} />
    <div className="container">
      <div className="row">
-       <div className="col-md-4">
+       <div className="col-md-4" id="firstCol">
          {arr}
        </div>
-       <div className="col-md-8">
-         <MapContainer />
+       <div className="col-md-8" id="secondCol">
+         <MapContainer loc={loc}/>
        </div>
      </div>
    </div>
