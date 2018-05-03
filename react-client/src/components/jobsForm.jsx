@@ -24,8 +24,7 @@ class JobsForm extends React.Component {
 		this.baseState = this.state;
 		this.onChange = this.onChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-	  this.handleClick = this.handleClick.bind(this);
-	}
+ 	}
 
 	onChange(e) {
 	    var states = this.state.states;
@@ -48,19 +47,6 @@ class JobsForm extends React.Component {
   			.catch(function (error) {
     		console.log(error);
   			});
-		};
-//need to check with the back-end !!!
-		handleClick(event){
-			var that = this;
-			event.preventDefault();
-			axios.post('/job', this.state.states)
-				.then(function (response) {
-					that.setState({urgency: 10})
-
-				})
-				.catch(function (error){
-					console.log(error);
-				});
 		};
 
 	render() {
@@ -147,13 +133,12 @@ class JobsForm extends React.Component {
 			</Col>
   	</Row><br/><br/>
 		<Row>
-		<Col md={2}>
-				<form name="urgency" id="urg" className="btn btn-primary" >
-				<input type="checkbox" value="1 Day: 2JD"/> 1 Day : 2JD<br/>
-				<input type="checkbox" value="3 Days: 5JD"/>3 Days: 5JD<br/>
-				<input type="checkbox" value="7 Days: 8JD"/>7 Days: 8JD<br/>
-				<input type="submit" value="Urgent" className="btn btn-primary" type="submit" bsSize="large" onClick={this.handleClick}/>
-				</form>
+		<Col md={4}>
+		<label id='signlable'>Enter '10' if it is URGENT
+				<FormControl type="text" name="urgency" placeholder="Enter '10' if it is URGENT" autoFocus
+				onChange = {this.onChange}
+				/>
+			</label>
 			</Col>
 			</Row>
 			<Col md={2}>

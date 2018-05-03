@@ -55,7 +55,7 @@ app.get('/jobs', function(req, res){
 		} else {
 			res.send(jobs);
 		}
-	});	
+	});
 });
 app.get('/logged', function(req, res){
 	if(req.session.userName){
@@ -159,11 +159,12 @@ app.post('/login', function (req, res) {
 
 //it creates a new job
 app.post('/job', function(req, res){
-	Jobs.createJob(req.session.userName,req.body, function(err,jobs){
+	console.log("req",req.body)
+		Jobs.createJob(req.session.userName,req.body, function(err,jobs){
 		if(err){
 			console.log(err);
 		} else {
-			
+			console.log("resp",jobs)
 			res.send(jobs);
 		}
 	})
@@ -207,4 +208,3 @@ app.set('port', (process.env.PORT || 3000));
 app.listen(app.get('port'), function() {
   console.log('listening on port ', app.get('port'));
 });
-
