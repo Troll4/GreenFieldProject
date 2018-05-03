@@ -6,7 +6,7 @@ import UserInfo from './UserInfo.jsx';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       jobs: [],
       user:[]
     }
@@ -19,8 +19,8 @@ class Profile extends React.Component {
     .then(response => {
     const posts = response.data;
     this.setState({jobs:posts});
-    
-    
+
+
   }).catch(function (error) {
     console.log(error);
   });
@@ -33,7 +33,7 @@ getUserInfo(){
     const posts = response.data;
     console.log(posts);
     this.setState({user:posts});
-    
+
   })
   .catch(function (error) {
     console.log(error);
@@ -42,23 +42,23 @@ getUserInfo(){
 
 render() {
   var arr = [];
-  
+
     this.state.jobs.forEach(function(item) {
       arr.push(<JobsForUser item={item} />)
     })
-  
+
   return (
-  
-    <div id="profile">
+
+    <div id="profile" className="card text-white bg-dark mb-3" style={{width: '35rem'}} >
     <br/>
     <div>
-    <UserInfo user={this.state.user}/>
+    <UserInfo user={this.state.user} />
     </div>
     <div>
     {arr}
     </div><br /><br />
     </div>
-    
+
     )
 }
 }
