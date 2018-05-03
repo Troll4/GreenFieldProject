@@ -17,9 +17,9 @@ render() {
 
   return (
   <div>
-  	<div id='prof' className='card-columns'>
-      <div className = 'col-12'>
-  	<div className="card text-white bg-dark mb-3" style={{width: '35rem'}} ><br />
+  	<div id='prof' className='card-columns row'>
+      <div className = 'col-md-12'>
+  	<div className="card text-white bg-dark mb-3" style={{width: '100%'}} ><br />
   		<div className="card-body">
 			<div >
 			<span><b>Name : </b></span>
