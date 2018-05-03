@@ -72,16 +72,18 @@ render() {
   return (
 
   <div id='home'>
-    <div className = 'container'>
-      <Search searchJobTitle={this.searchJobTitle.bind(this)} searchJobCategory={this.searchJobCategory.bind(this)} />
-      {arr}
-      <div>
-        <div className = 'container'>
-          <MapContainer/>
-        </div>
-      </div>
-    </div>
-  </div>
+   <Search searchJobTitle={this.searchJobTitle.bind(this)} searchJobCategory={this.searchJobCategory.bind(this)} />
+   <div className="container">
+     <div className="row">
+       <div className="col-md-4">
+         {arr}
+       </div>
+       <div className="col-md-8">
+         <MapContainer />
+       </div>
+     </div>
+   </div>
+   </div>
 
     )
 }
