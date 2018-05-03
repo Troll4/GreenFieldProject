@@ -4,13 +4,15 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 class MapContainer extends Component {
   constructor(props){
     super(props)
+    console.log("teeeeeeesssstt")
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
       lat: 31.9454,
       lng: 35.9284,
-      loc:[{lat:31.944,lng:35.9272,dis:{name:"*Mais*",dis:'Extra cement to give'}},{lat:31.9454,lng:35.9284,dis:{name:"*Nader*",dis:'Axe'}},{lat:31.9432,lng:35.9264,dis:{name:"*Ayman*",dis:'Hammer'}},{lat:31.9439,lng:35.9264,dis:{name:"*Zoulfa*",dis:'Drill'}}]
+      loc: this.props.loc
+      //loc:[{lat:31.944,lng:35.9272,dis:{name:"*Mais*",dis:'Extra cement to give'}},{lat:31.9454,lng:35.9284,dis:{name:"*Nader*",dis:'Axe'}},{lat:31.9432,lng:35.9264,dis:{name:"*Ayman*",dis:'Hammer'}},{lat:31.9439,lng:35.9264,dis:{name:"*Zoulfa*",dis:'Drill'}}]
     }
     this.onMarkerClick = this.onMarkerClick.bind(this)
     this.onMapClicked = this.onMapClicked.bind(this)

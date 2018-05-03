@@ -276,6 +276,22 @@ li a:hover:not(.is-active) {
 #description {
  text-align: left;
 }
+#firstCol {
+  height: 500px;
+  overflow: auto;
+}
+
+#secondCol {
+  position: center;
+  height: 500px;
+}
+// #map {
+//
+//     width: 50%;
+//     left: 25%;
+//     height:50px;
+//
+// }
 // #map {
 //
 //     width: 50%;
